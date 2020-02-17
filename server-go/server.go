@@ -3,6 +3,7 @@ package server
 import (
 	"go_pill/headers-go"
 	"go_pill/html-go"
+	"go_pill/images-go"
 	"go_pill/json-go"
 	"go_pill/plaintext-go"
 	"go_pill/xml-go"
@@ -32,6 +33,7 @@ func ServerCode() {
 	//returning a plain text
 	r.HandleFunc("/plaintext", plaintext.ImportPlainText).Methods("GET")
 	//returning an image
+	r.HandleFunc("/image", images.ImportImage).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8000", r))
 
 }
